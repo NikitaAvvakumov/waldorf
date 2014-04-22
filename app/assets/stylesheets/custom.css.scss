@@ -3,9 +3,10 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   color: $waldorf_dark_blue;
 }
 
@@ -13,18 +14,20 @@ h1 {
   background-color: $waldorf_dark_blue;
 }
 
-.lead p {
-  font-size: 120%;
-}
-
-.lead {
+p.lead {
   padding: 20px;
   background-color: $waldorf_light_yellow;
-  color: scale-color($waldorf_paper_yellow, $lightness: +14%);
+  color: #fff; //scale-color($waldorf_paper_yellow, $lightness: +14%);
+  font-size: 120%;
 }
 
 span.first-word {
   font-size: 200%;
+  font-style: italic;
+}
+
+span.first-word-gentle {
+  font-size: 150%;
   font-style: italic;
 }
 
