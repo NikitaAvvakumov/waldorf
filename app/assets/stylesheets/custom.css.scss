@@ -1,0 +1,33 @@
+@import "foundation_and_overrides";
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 40px;
+}
+
+h1 {
+  color: $waldorf_dark_blue;
+}
+
+.title-area {
+  background-color: $waldorf_dark_blue;
+}
+
+.lead p {
+  font-size: 120%;
+}
+
+.lead {
+  padding: 20px;
+  background-color: $waldorf_light_yellow;
+  color: scale-color($waldorf_paper_yellow, $lightness: +14%);
+}
+
+span.first-word {
+  font-size: 200%;
+  font-style: italic;
+}
+
+.newest-post {
+  padding-top: 20px;
+}
