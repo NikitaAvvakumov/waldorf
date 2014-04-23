@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'teachers/index'
+
   root 'static_pages#home'
 
   get 'home', to: 'static_pages#home'
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   get 'about', to: 'about#about'
   get 'vision', to: 'about#vision'
   get 'history', to: 'about#history'
+
+  resources :teachers
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

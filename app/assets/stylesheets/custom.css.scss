@@ -10,13 +10,18 @@ h1, h2, h3, h4, h5, h6 {
   color: $waldorf_dark_blue;
 }
 
+h1 {
+  background-color: $waldorf_dark_yellow;
+  padding-left: 10px;
+}
+
 .title-area {
   background-color: $waldorf_dark_blue;
 }
 
 p.lead {
   padding: 20px;
-  background-color: $waldorf_light_yellow;
+  background-color: $waldorf_dark_yellow;
   color: #fff; //scale-color($waldorf_paper_yellow, $lightness: +14%);
   font-size: 120%;
 }
