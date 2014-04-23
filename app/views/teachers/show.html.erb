@@ -1,9 +1,14 @@
 <% provide :title, "TWG | #{@teacher.name}" %>
 
-<img src="not_found.jpg" width="40px" height="60px" />
-<p><%= @teacher.name %></p>
-<p><%= @teacher.email %></p>
-<p><%= @teacher.subjects %></p>
-<p><%= @teacher.bio %></p>
+<%= render 'teachers' %>
 
-<%= link_to 'All teachers', teachers_path %>
+<div class="small-9 columns">
+
+  <%= image_tag '64.png' %>
+  <p><%= @teacher.name %></p>
+  <p><%= @teacher.email %></p>
+  <p><%= @teacher.subjects %></p>
+  <p><%= @teacher.bio %></p>
+
+  <%= link_to 'All teachers', teachers_path %>
+</div>

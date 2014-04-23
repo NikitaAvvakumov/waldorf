@@ -8,10 +8,9 @@
       <li>
         <%= image_tag '64.png' %>
         <ul class="no-bullet">
-          <li><h6><%= teacher.name %></h6></li>
+          <li><h6><%= link_to teacher.name, teacher_path(teacher) %></h6></li>
           <li><%= mail_to teacher.email %></li>
           <li><%= teacher.subjects %></li>
-          <li><%= link_to 'More', teacher_path(teacher) %></li>
         </ul>
       </li>
   <% end %>

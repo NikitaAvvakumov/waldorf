@@ -1,0 +1,22 @@
+<% provide :title, 'TWG | Students' %>
+
+<h1>Featured Waldorfgümnaasium students</h1>
+
+<blockquote>
+  Each month we profile a Waldorfgümnaasium student nominated by his/her peers. This page showcases the talents,
+  hard work, enthusiasm and achievements that fill our school every day.
+</blockquote>
+
+<div id="students">
+  <% @students.each do |student| %>
+  <div class="student">
+    <%= image_tag '64.png' %>
+    <ul class="no-bullet">
+      <li><h3><%= link_to student.name, student_path(student) %>, <%= student.age %></h3></li>
+      <li>Grade <%= student.grade %></li>
+      <li><%= truncate(student.about, length: 0, separator: '---MORE---', escape: false) { link_to 'Continue', student_path(student) } %></li>
+    </ul>
+
+  </div>
+  <% end %>
+</div>

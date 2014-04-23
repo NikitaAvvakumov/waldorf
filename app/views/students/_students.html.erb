@@ -1,0 +1,7 @@
+<div class="small-3 columns">
+  <ul class="side-nav">
+    <% @students.each do |student| %>
+    <li class="<%= cp(student_path(student)) %>"><%= link_to student.name, student_path(student) %></li>
+	<% end %>
+  </ul>
+</div>

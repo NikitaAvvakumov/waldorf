@@ -17,3 +17,13 @@ Teacher.create(name: 'Minerva McGonagall',
                subjects: 'Transformation',
                bio: 'Stern but fair, Prof. McGonagall is just the right witch to instill respect
                     for magic into our first-grade students.')
+
+Student.create(name: 'Harry Potter',
+               age: 11,
+               grade: 2,
+               about: '<p>Harry always seems to find trouble.</p>---MORE---<p>Or perhaps <b>trouble finds him</b>.</p>')
+
+Student.create(name: 'Hermione Granger',
+               age: 10,
+               grade: 2,
+               about: '<p>Hermione knows <em>everything</em>.</p>---MORE---<p>Because she has read every book.</p>')
