@@ -11,7 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   background-color: $waldorf_dark_yellow;
-  padding-left: 10px;
+  padding: 10px 0 10px 10px;
 }
 
 .title-area {
@@ -41,15 +41,16 @@ span.first-word-gentle {
 
 .name h1 {
   background-color: $waldorf_dark_blue;
+  padding: 0;
 }
 
 .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  clear: all;
-  color: #fff;
+  color: $waldorf_paper_yellow;
+  font-size: small;
   background-color: $waldorf_dark_blue;
   height: 40px;
-  padding: 10px 10px 0 10px;
+  padding: 15px 10px 0 10px;
 }
