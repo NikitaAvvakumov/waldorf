@@ -3,7 +3,6 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,4 +41,15 @@ span.first-word-gentle {
 
 .name h1 {
   background-color: $waldorf_dark_blue;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  clear: all;
+  color: #fff;
+  background-color: $waldorf_dark_blue;
+  height: 40px;
+  padding: 10px 10px 0 10px;
 }
