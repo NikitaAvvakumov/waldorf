@@ -7,7 +7,7 @@ feature 'Viewing Teacher Pages' do
   scenario 'listing all teachers' do
     visit teachers_path
 
-    expect(page).to have_title 'TWG | Our teachers'
+    expect(page).to have_title 'TWG | Teachers'
     expect(page).to have_content 'Waldorfgümnaasium teachers & staff'
     expect(page).to have_content teacher1.name
     expect(page).to have_content teacher1.email

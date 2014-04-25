@@ -21,7 +21,7 @@ feature 'Viewing Students' do
     expect(page).not_to have_content '---MORE---'
   end
 
-  scenario 'viewing an individual student' do
+  scenario 'viewing an individual student as a visitor' do
     visit students_path
     click_link student1.name
 
@@ -29,5 +29,15 @@ feature 'Viewing Students' do
     expect(page).to have_content student1.name
     expect(page).to have_content 'Harry always finds trouble. Or perhaps trouble finds him.'
     expect(page).not_to have_content '---MORE---'
+
+    expect(page).not_to have_link 'Edit'
+    expect(page).not_to have_link 'Delete'
+  end
+
+  scenario 'viewing an individual student as a signed-in admin' do
+    sign_in_as FactoryGirl.create(:admin)
+    visit student_path(student1)
+    expect(page).to have_link 'Edit'
+    expect(page).to have_link 'Delete'
   end
 end

@@ -10,7 +10,11 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-
+        <% if admin_signed_in? %>
+        <li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li>
+        <% else %>
+        <li class="nav-subtle"><span><%= link_to 'Site Admin', new_admin_session_path %></span></li>
+        <% end %>
       </ul>
 
       <!-- Left Nav Section -->
@@ -38,6 +42,7 @@
           <ul class="dropdown">
             <li><%= link_to 'Bylaws', '#' %></li>
             <li><%= link_to 'Projects', '#' %></li>
+            <li><%= link_to 'Working groups', '#' %></li>
             <li><%= link_to 'Annual Reports', '#' %></li>
           </ul>
         </li>

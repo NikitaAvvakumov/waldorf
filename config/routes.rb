@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'students/index'
 
-  get 'students/show'
-
-  get 'teachers/index'
+  devise_for :admins, skip: :registrations
 
   root 'static_pages#home'
 

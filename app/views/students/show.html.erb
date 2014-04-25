@@ -4,9 +4,20 @@
 
 <div class="small-9 columns">
   <h1><%= @student.name %></h1>
-  <%= image_tag '64.png' %>
+  <%= image_tag('64.png') %>
   <div id="about-student">
     <%= sanitize((@student.about).gsub(/---MORE---/, '')) %>
   </div>
+
+  <% if admin_signed_in? %>
+      <hr />
+      <div class="admin-links">
+        Admin actions:
+        <%= link_to 'Edit', edit_student_path(@student) %> &nbsp;
+        <%= link_to 'Delete', student_path(@student), method: :delete, data: { confirm: "Delete #{@student.name}'s profile?"} %>
+      </div>
+  <% end %>
+
+  <hr />
   <%= link_to 'All students', students_path %>
 </div>

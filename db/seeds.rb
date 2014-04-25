@@ -27,3 +27,5 @@ Student.create(name: 'Hermione Granger',
                age: 10,
                grade: 2,
                about: '<p>Hermione knows <em>everything</em>.</p>---MORE---<p>Because she has read every book.</p>')
+
+Admin.create(email: 'admin@waldorf.info', password: 'tartuwaldorf', password_confirmation: 'tartuwaldorf')

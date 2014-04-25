@@ -7,10 +7,14 @@
   hard work, enthusiasm and achievements that fill our school every day.
 </blockquote>
 
+<% if admin_signed_in? %>
+	<%= link_to 'Create new student profile', new_student_path, class: 'button' %>
+<% end %>
+
 <div id="students">
   <% @students.each do |student| %>
   <div class="student">
-    <%= image_tag '64.png' %>
+    <%= link_to image_tag('64.png'), student_path(student) %>
     <ul class="no-bullet">
       <li><h3><%= link_to student.name, student_path(student) %>, <%= student.age %></h3></li>
       <li>Grade <%= student.grade %></li>

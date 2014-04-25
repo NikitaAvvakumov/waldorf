@@ -5,10 +5,23 @@
 <div class="small-9 columns">
 
   <%= image_tag '64.png' %>
-  <p><%= @teacher.name %></p>
-  <p><%= @teacher.email %></p>
-  <p><%= @teacher.subjects %></p>
-  <p><%= @teacher.bio %></p>
+  <ul class="no-bullet">
+    <li><h1><%= @teacher.name %></h1></li>
+    <li><%= mail_to @teacher.email %></li>
+    <li><h6><%= @teacher.subjects %></h6></li>
+    <li><%= @teacher.bio %></li>
+  </ul>
+
+  <% if admin_signed_in? %>
+      <hr />
+      <div class="admin-links">
+        Admin actions:
+        <%= link_to 'Edit', edit_teacher_path(@teacher) %> &nbsp;
+        <%= link_to 'Delete', teacher_path(@teacher), method: :delete, data: { confirm: "Delete #{@teacher.name}'s profile?"} %>
+      </div>
+  <% end %>
+
+  <hr />
 
   <%= link_to 'All teachers', teachers_path %>
 </div>

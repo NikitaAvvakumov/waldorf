@@ -1,0 +1,19 @@
+
+<%= form_for @teacher do |f| %>
+
+    <%= render 'shared/form_errors', object: f.object %>
+
+    <%= f.label :name, 'Name (required)' %>
+    <%= f.text_field :name %>
+
+    <%= f.label :email, 'Email (required)' %>
+    <%= f.text_field :email %>
+
+    <%= f.label :subjects, 'Subject(s) (required)' %>
+    <%= f.text_field :subjects %>
+
+    <%= f.label :bio, "Teacher's bio (required)" %>
+    <%= f.text_area :bio, rows: '15' %>
+
+    <%= f.submit button_text, class: 'button' %>
+<% end %>

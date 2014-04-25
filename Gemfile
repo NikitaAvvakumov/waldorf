@@ -26,6 +26,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+# Use Devise for authentication
+gem 'devise'
+
 # Use Zurb Foundation for layout and styling
 gem 'foundation-rails'
 

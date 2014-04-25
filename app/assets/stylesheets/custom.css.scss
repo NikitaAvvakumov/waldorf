@@ -54,3 +54,16 @@ span.first-word-gentle {
   height: 40px;
   padding: 15px 10px 0 10px;
 }
+
+.nav-subtle a {
+  color: $waldorf_paper_yellow;
+  font-size: small;
+}
+
+.field_with_errors {
+  @extend .error
+}
+
+.form-errors {
+  @extend .alert-box, .warning
+}

@@ -1,0 +1,10 @@
+<% if object.errors.any? %>
+    <div class="form-errors">
+      <h4><%= pluralize(object.errors.count, 'error') %> prevented this form from being submitted:</h4>
+      <ul>
+        <% object.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

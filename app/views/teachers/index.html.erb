@@ -1,12 +1,16 @@
-<% provide :title, 'TWG | Our teachers' %>
+<% provide :title, 'TWG | Teachers' %>
 
 <h1>Waldorfgümnaasium teachers & staff</h1>
 <hr />
 
+<% if admin_signed_in? %>
+    <%= link_to 'Create new teacher profile', new_teacher_path, class: 'button' %>
+<% end %>
+
 <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
   <% @teachers.each do |teacher| %>
       <li>
-        <%= image_tag '64.png' %>
+        <%= link_to (image_tag '64.png'), teacher_path(teacher) %>
         <ul class="no-bullet">
           <li><h6><%= link_to teacher.name, teacher_path(teacher) %></h6></li>
           <li><%= mail_to teacher.email %></li>
