@@ -26,6 +26,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+# Use Paperclip to attach images to models
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+gem 'paperclip-dropbox'
+
 # Use Devise for authentication
 gem 'devise'
 

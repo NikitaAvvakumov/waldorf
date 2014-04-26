@@ -4,7 +4,9 @@
 
 <div class="small-9 columns">
   <h1><%= @student.name %></h1>
-  <%= image_tag('64.png') %>
+
+  <%= image_tag @student.photo.url(:medium) %>
+
   <div id="about-student">
     <%= sanitize((@student.about).gsub(/---MORE---/, '')) %>
   </div>

@@ -36,4 +36,32 @@ feature 'Creating Students' do
     expect(page).to have_title 'TWG | New Student Profile'
     expect(page).to have_selector 'div.form-errors', text: 'prevented this form from being submitted'
   end
+
+  scenario 'valid student profile with attached image created by a signed-in admin' do
+    sign_in_as admin
+    visit new_student_path
+    add_valid_student_info
+    attach_file 'Photo', Rails.root.join('spec/fixtures/rails.png')
+    click_button 'Create Profile'
+
+    expect(page).to have_selector 'div.alert-box.success', text: 'New student profile created.'
+    expect(page).to have_css("img[src*='rails.png']")
+  end
+
+  scenario 'valid student profile with attached non-image file created by a signed-in admin' do
+    sign_in_as admin
+    visit new_student_path
+    add_valid_student_info
+    attach_file 'Photo', Rails.root.join('spec/fixtures/rails.txt')
+    click_button 'Create Profile'
+
+    expect(page).to have_title 'TWG | New Student Profile'
+    expect(page).to have_selector 'div.form-errors', text: 'prevented this form from being submitted'
+  end
+end
+
+def add_valid_student_info
+  fill_in 'student_name', with: 'Ron Weasley'
+  fill_in 'student_grade', with: 2
+  fill_in 'student_about', with: "Ron's red hair---MORE--- is visible from anywhere."
 end

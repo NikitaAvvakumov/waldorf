@@ -14,7 +14,7 @@
 <div id="students">
   <% @students.each do |student| %>
   <div class="student">
-    <%= link_to image_tag('64.png'), student_path(student) %>
+    <%= link_to image_tag(student.photo.url(:thumb)), student_path(student) %>
     <ul class="no-bullet">
       <li><h3><%= link_to student.name, student_path(student) %>, <%= student.age %></h3></li>
       <li>Grade <%= student.grade %></li>

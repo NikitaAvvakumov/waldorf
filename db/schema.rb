@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424123238) do
+ActiveRecord::Schema.define(version: 20140426201128) do
 
   create_table "admins", force: true do |t|
     t.string   "email"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20140424123238) do
     t.text     "about"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "teachers", force: true do |t|
@@ -47,6 +51,10 @@ ActiveRecord::Schema.define(version: 20140424123238) do
     t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end

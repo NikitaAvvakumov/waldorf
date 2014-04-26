@@ -1,7 +1,10 @@
 
-<%= form_for @student do |f| %>
+<%= form_for @student, html: { multipart: true } do |f| %>
 
 	<%= render 'shared/form_errors', object: f.object %>
+
+	<%= f.label :photo %>
+	<%= f.file_field :photo %>
 
     <%= f.label :name, 'Name (required)' %>
     <%= f.text_field :name %>

@@ -3,6 +3,9 @@
 
     <%= render 'shared/form_errors', object: f.object %>
 
+	<%= f.label :photo %>
+	<%= f.file_field :photo %>
+
     <%= f.label :name, 'Name (required)' %>
     <%= f.text_field :name %>
 

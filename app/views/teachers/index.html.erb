@@ -10,7 +10,7 @@
 <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
   <% @teachers.each do |teacher| %>
       <li>
-        <%= link_to (image_tag '64.png'), teacher_path(teacher) %>
+        <%= link_to (image_tag teacher.photo.url(:thumb)), teacher_path(teacher) %>
         <ul class="no-bullet">
           <li><h6><%= link_to teacher.name, teacher_path(teacher) %></h6></li>
           <li><%= mail_to teacher.email %></li>

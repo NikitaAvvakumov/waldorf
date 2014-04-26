@@ -14,6 +14,7 @@ describe Student do
   it { should respond_to :age }
   it { should respond_to :grade }
   it { should respond_to :about }
+  it { should respond_to :photo }
   it { should be_valid }
 
   describe 'validations' do
