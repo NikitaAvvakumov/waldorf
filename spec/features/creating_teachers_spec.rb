@@ -49,7 +49,7 @@ feature 'Creating Teachers' do
     expect(page).to have_css("img[src*='rails.png']")
   end
 
-  scenario 'valid student profile with attached non-image file created by a signed-in admin' do
+  scenario 'valid teacher profile with attached non-image file created by a signed-in admin' do
     sign_in_as admin
     visit new_teacher_path
     add_valid_teacher_info

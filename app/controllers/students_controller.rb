@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
 
-  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy, :remove_photo]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :remove_photo]
 
   def index
     @students = Student.all
@@ -38,6 +38,12 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     redirect_to students_path, flash: { success: 'Student profile has been deleted.' }
+  end
+
+  def remove_photo
+    @student.photo = nil
+    @student.save
+    redirect_to @student, flash: { success: 'Student profile photo has been removed.' }
   end
 
   private

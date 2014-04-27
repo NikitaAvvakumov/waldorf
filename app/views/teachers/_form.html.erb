@@ -6,6 +6,10 @@
 	<%= f.label :photo %>
 	<%= f.file_field :photo %>
 
+    <% if @teacher.persisted? %>
+        <%= link_to 'Remove profile photo', remove_teacher_photo_path %>
+    <% end %>
+
     <%= f.label :name, 'Name (required)' %>
     <%= f.text_field :name %>
 

@@ -41,4 +41,15 @@ feature 'Editing Teachers' do
     expect(page).to have_title 'TWG | Edit teacher profile'
     expect(page).to have_selector 'div.form-errors', text: 'prevented this form from being submitted'
   end
+
+  scenario 'removing teacher profile photo' do
+    sign_in_as admin
+    visit edit_teacher_path(teacher)
+    click_link 'Remove profile photo'
+
+    expect(page).to have_title "#{teacher.name}"
+    expect(page).to have_selector 'div.alert-box.success', text: 'Teacher profile photo has been removed.'
+    expect(page).to have_css("img[src*='wiz_hat.png']")
+    expect(page).not_to have_css("img[src*='rails.png']")
+  end
 end

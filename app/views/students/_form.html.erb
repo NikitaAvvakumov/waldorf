@@ -3,8 +3,12 @@
 
 	<%= render 'shared/form_errors', object: f.object %>
 
-	<%= f.label :photo %>
+	<%= f.label :photo, 'Profile photo' %>
 	<%= f.file_field :photo %>
+
+	<% if @student.persisted? %>
+		<%= link_to 'Remove profile photo', remove_student_photo_path %>
+	<% end %>
 
     <%= f.label :name, 'Name (required)' %>
     <%= f.text_field :name %>

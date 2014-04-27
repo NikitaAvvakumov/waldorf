@@ -41,7 +41,7 @@ feature 'Creating Students' do
     sign_in_as admin
     visit new_student_path
     add_valid_student_info
-    attach_file 'Photo', Rails.root.join('spec/fixtures/rails.png')
+    attach_file 'student_photo', Rails.root.join('spec/fixtures/rails.png')
     click_button 'Create Profile'
 
     expect(page).to have_selector 'div.alert-box.success', text: 'New student profile created.'
@@ -52,7 +52,7 @@ feature 'Creating Students' do
     sign_in_as admin
     visit new_student_path
     add_valid_student_info
-    attach_file 'Photo', Rails.root.join('spec/fixtures/rails.txt')
+    attach_file 'student_photo', Rails.root.join('spec/fixtures/rails.txt')
     click_button 'Create Profile'
 
     expect(page).to have_title 'TWG | New Student Profile'

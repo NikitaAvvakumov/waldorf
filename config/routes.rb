@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :teachers
   resources :students
 
+  get 'students/:id/remove_photo', to: 'students#remove_photo', as: :remove_student_photo
+  get 'teachers/:id/remove_photo', to: 'teachers#remove_photo', as: :remove_teacher_photo
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
