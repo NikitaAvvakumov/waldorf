@@ -37,7 +37,7 @@ feature 'Creating Students' do
     expect(page).to have_selector 'div.form-errors', text: 'prevented this form from being submitted'
   end
 
-  scenario 'valid student profile with attached image created by a signed-in admin' do
+  scenario 'creating a student profile with attached profile photo' do
     sign_in_as admin
     visit new_student_path
     add_valid_student_info
@@ -48,7 +48,7 @@ feature 'Creating Students' do
     expect(page).to have_css("img[src*='rails.png']")
   end
 
-  scenario 'valid student profile with attached non-image file created by a signed-in admin' do
+  scenario 'creating a student profile with a non-image file as profile photo' do
     sign_in_as admin
     visit new_student_path
     add_valid_student_info
@@ -57,6 +57,22 @@ feature 'Creating Students' do
 
     expect(page).to have_title 'TWG | New Student Profile'
     expect(page).to have_selector 'div.form-errors', text: 'prevented this form from being submitted'
+  end
+
+  scenario 'creating a student profile with attached assets' do
+    sign_in_as admin
+    visit new_student_path
+    add_valid_student_info
+
+    attach_file 'Asset 1', Rails.root.join('spec/fixtures/health_potion.png')
+    attach_file 'Asset 2', Rails.root.join('spec/fixtures/magic_wand.jpg')
+    click_button 'Create Profile'
+
+    expect(page).to have_selector 'div.alert-box.success', text: 'New student profile created.'
+    within('#creations') do
+      expect(page).to have_css("img[src*='health_potion.png']")
+      expect(page).to have_css("img[src*='magic_wand.jpg']")
+    end
   end
 end
 

@@ -11,6 +11,17 @@
     <%= sanitize((@student.about).gsub(/---MORE---/, '')) %>
   </div>
 
+  <% if @student.assets.present? %>
+      <div id="creations">
+        <% @student.assets.each do |asset| %>
+	        <%= image_tag asset.asset.url(:medium) %>
+	        <% if admin_signed_in? %>
+	            <small><%= number_to_human_size(asset.asset.size) %></small>
+	        <% end %>
+	    <% end %>
+      </div>
+  <% end %>
+
   <% if admin_signed_in? %>
       <hr />
       <div class="admin-links">

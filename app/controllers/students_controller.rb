@@ -13,6 +13,7 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    3.times { @student.assets.build }
   end
 
   def create
@@ -53,6 +54,6 @@ class StudentsController < ApplicationController
     end
 
     def student_params
-      params.require(:student).permit(:name, :age, :grade, :about, :photo)
+      params.require(:student).permit(:name, :age, :grade, :about, :photo, assets_attributes: [:asset])
     end
 end
