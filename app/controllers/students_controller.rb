@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
-    3.times { @student.assets.build }
+    @student.assets.build
   end
 
   def create

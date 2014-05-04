@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :teachers
   resources :students
+  resources :assets
 
   get 'students/:id/remove_photo', to: 'students#remove_photo', as: :remove_student_photo
   get 'teachers/:id/remove_photo', to: 'teachers#remove_photo', as: :remove_teacher_photo

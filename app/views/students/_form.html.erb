@@ -1,14 +1,14 @@
 
 <%= form_for @student, html: { multipart: true } do |f| %>
 
-	<%= render 'shared/form_errors', object: f.object %>
+    <%= render 'shared/form_errors', object: f.object %>
 
-	<%= f.label :photo, 'Profile photo' %>
-	<%= f.file_field :photo %>
+    <%= f.label :photo, 'Profile photo' %>
+    <%= f.file_field :photo %>
 
-	<% if @student.persisted? %>
-		<%= link_to 'Remove profile photo', remove_student_photo_path %>
-	<% end %>
+    <% if @student.persisted? %>
+        <%= link_to 'Remove profile photo', remove_student_photo_path %>
+    <% end %>
 
     <%= f.label :name, 'Name (required)' %>
     <%= f.text_field :name %>
@@ -22,12 +22,15 @@
     <%= f.label :about, 'About the student (required)' %>
     <%= f.text_area :about, rows: '15' %>
 
-	<h6>You can attach one or more image files to showcase the student's creations and accomplishments:</h6>
-	<% file_number = 0 %>
-	<%= f.fields_for :assets do |asset| %>
-		<%= asset.label :asset, "Asset #{file_number += 1}" %>
-		<%= asset.file_field :asset %>
-	<% end %>
+    <h5>You can attach one or more image files to showcase the student's creations and accomplishments:</h5>
+    <% file_number = 0 %>
+    <div id="assets">
+      <%= render partial: 'assets/form', locals: { file_number: file_number} %>
+    </div>
+
+    <div style="padding-bottom: 10px;">
+      <%= link_to 'Add another file', 'javascript:', id: 'add_another_asset'  %>
+    </div>
 
     <%= f.submit button_text, class: 'button' %>
 <% end %>

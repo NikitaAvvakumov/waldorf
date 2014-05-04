@@ -59,13 +59,14 @@ feature 'Creating Students' do
     expect(page).to have_selector 'div.form-errors', text: 'prevented this form from being submitted'
   end
 
-  scenario 'creating a student profile with attached assets' do
+  scenario 'creating a student profile with attached assets', js: true do
     sign_in_as admin
     visit new_student_path
     add_valid_student_info
 
-    attach_file 'Asset 1', Rails.root.join('spec/fixtures/health_potion.png')
-    attach_file 'Asset 2', Rails.root.join('spec/fixtures/magic_wand.jpg')
+    attach_file 'Example 1', Rails.root.join('spec/fixtures/health_potion.png')
+    click_link 'Add another file'
+    attach_file 'Example 2', Rails.root.join('spec/fixtures/magic_wand.jpg')
     click_button 'Create Profile'
 
     expect(page).to have_selector 'div.alert-box.success', text: 'New student profile created.'

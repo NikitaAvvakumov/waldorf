@@ -1,0 +1,6 @@
+<%= fields_for @student do |f| %>
+    <%= f.fields_for :assets, child_index: file_number do |asset| %>
+        <%= asset.label :asset, "Example #{file_number += 1}" %>
+        <%= asset.file_field :asset %>
+    <% end %>
+<% end %>
