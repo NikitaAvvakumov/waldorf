@@ -76,9 +76,3 @@ feature 'Creating Students' do
     end
   end
 end
-
-def add_valid_student_info
-  fill_in 'student_name', with: 'Ron Weasley'
-  fill_in 'student_grade', with: 2
-  fill_in 'student_about', with: "Ron's red hair---MORE--- is visible from anywhere."
-end

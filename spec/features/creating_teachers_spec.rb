@@ -60,10 +60,3 @@ feature 'Creating Teachers' do
     expect(page).to have_selector 'div.form-errors', text: 'prevented this form from being submitted'
   end
 end
-
-def add_valid_teacher_info
-  fill_in 'teacher_name', with: 'Severus Snape'
-  fill_in 'teacher_email', with: 'snape@waldorf.info'
-  fill_in 'teacher_subjects', with: 'Potions'
-  fill_in 'teacher_bio', with: 'There will be no wand-waving!'
-end
