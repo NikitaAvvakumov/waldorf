@@ -1,8 +1,9 @@
-
-<div style="width: 500px" class="small-centered column" id="asset-orbit">
-  <ul class="example-orbit" data-orbit>
-    <% Asset.carousel.each do |asset| %>
-        <li><%= image_tag asset.asset.url(:medium) %></li>
-    <% end %>
-  </ul>
-</div>
+<% unless Asset.all.empty? %>
+    <div style="width: 500px" class="small-centered column" id="asset-orbit">
+      <ul class="example-orbit" data-orbit>
+        <% Asset.carousel.each do |asset| %>
+            <li><%= image_tag asset.asset.url(:medium) %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
