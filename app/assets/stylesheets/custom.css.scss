@@ -67,3 +67,7 @@ span.first-word-gentle {
 .form-errors {
   @extend .alert-box, .warning
 }
+
+.example-orbit li img {
+  margin: 0 auto;
+}
