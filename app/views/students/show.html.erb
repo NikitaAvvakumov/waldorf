@@ -15,10 +15,6 @@
       <div id="creations">
         <% @student.assets.each do |asset| %>
 	        <%= image_tag asset.asset.url(:medium) %>
-	        <% if admin_signed_in? %>
-	            <small><%= number_to_human_size(asset.asset.size) %></small>
-		        <%= link_to 'Delete file', asset_path(asset), method: :delete, id: "delete_#{asset.asset_file_name}" %>
-	        <% end %>
 	    <% end %>
       </div>
   <% end %>

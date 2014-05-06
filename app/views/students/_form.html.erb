@@ -3,12 +3,18 @@
 
     <%= render 'shared/form_errors', object: f.object %>
 
+    <% if @student.persisted? %>
+        <% if @student.photo.present? %>
+            <h6>Current profile photo</h6>
+            <%= image_tag @student.photo.url(:medium) %>
+            <%= link_to 'Remove profile photo', remove_student_photo_path %>
+        <% else %>
+            <h6>No profile photo present, using default</h6>
+        <% end %>
+    <% end %>
+
     <%= f.label :photo, 'Profile photo' %>
     <%= f.file_field :photo %>
-
-    <% if @student.persisted? %>
-        <%= link_to 'Remove profile photo', remove_student_photo_path %>
-    <% end %>
 
     <%= f.label :name, 'Name (required)' %>
     <%= f.text_field :name %>
@@ -23,7 +29,18 @@
     <%= f.text_area :about, rows: '15' %>
 
     <h5>You can attach one or more image files to showcase the student's creations and accomplishments:</h5>
-    <% file_number = 0 %>
+
+    <% if @student.assets.persisted.any? %>
+        <% @student.assets.persisted.each do |asset| %>
+            <%# if asset.persisted? %>
+            <%= image_tag asset.asset.url(:medium) %>
+            <small><%= number_to_human_size(asset.asset.size) %></small>
+            <%= link_to 'Delete file', asset_path(asset), method: :delete, id: "delete_#{asset.asset_file_name}" %>
+            <%# end %>
+        <% end %>
+    <% end %>
+
+    <% file_number = @student.assets.count %>
     <div id="assets">
       <%= render partial: 'assets/form', locals: { file_number: file_number} %>
     </div>
@@ -32,5 +49,6 @@
       <%= link_to 'Add another file', 'javascript:', id: 'add_another_asset'  %>
     </div>
 
+	<hr />
     <%= f.submit button_text, class: 'button' %>
 <% end %>
