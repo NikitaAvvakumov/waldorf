@@ -6,10 +6,10 @@
 
   <%= image_tag @teacher.photo.url(:medium) %>
   <ul class="no-bullet">
-    <li><h1><%= @teacher.name %></h1></li>
+    <li><h1><%= sanitize(@teacher.name) %></h1></li>
     <li><%= mail_to @teacher.email %></li>
-    <li><h6><%= @teacher.subjects %></h6></li>
-    <li><%= @teacher.bio %></li>
+    <li><h6><%= sanitize(@teacher.subjects) %></h6></li>
+    <li><%= sanitize(@teacher.bio) %></li>
   </ul>
 
   <% if admin_signed_in? %>

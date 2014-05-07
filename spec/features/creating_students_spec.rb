@@ -62,7 +62,10 @@ feature 'Creating Students' do
   scenario 'creating a student profile with attached assets', js: true do
     sign_in_as admin
     visit new_student_path
-    add_valid_student_info
+    #add_valid_student_info - does not work as textarea is taken over by tinyMCE
+    fill_in 'student_name', with: 'Ron Weasley'
+    fill_in 'student_grade', with: 2
+    page.execute_script('$(tinymce.editors[0].setContent("Ron\'s red hair---MORE--- is visible from anywhere."))')
 
     attach_file 'Example 1', Rails.root.join('spec/fixtures/health_potion.png')
     click_link 'Add another file'

@@ -38,6 +38,9 @@ gem 'devise'
 # Use Zurb Foundation for layout and styling
 gem 'foundation-rails'
 
+# Use TinyMCE for text areas
+gem 'tinymce-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 

@@ -2,7 +2,7 @@
     <div style="width: 500px" class="small-centered column" id="asset-orbit">
       <ul class="example-orbit" data-orbit>
         <% Asset.carousel.each do |asset| %>
-            <li><%= image_tag asset.asset.url(:medium) %></li>
+            <li><%= image_tag asset.asset.url %></li>
         <% end %>
       </ul>
     </div>

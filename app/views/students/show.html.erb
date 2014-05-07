@@ -3,7 +3,7 @@
 <%= render 'students' %>
 
 <div class="small-9 columns">
-  <h1><%= @student.name %></h1>
+  <h1><%= sanitize(@student.name) %></h1>
 
   <%= image_tag @student.photo.url(:medium) %>
 

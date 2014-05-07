@@ -1,0 +1,7 @@
+toolbar1: styleselect | bold italic | undo redo | fullscreen | alignleft aligncenter alignright | bullist numlist blockquote
+plugins:
+  - fullscreen
+menubar:
+  - edit
+  - view
+  - format

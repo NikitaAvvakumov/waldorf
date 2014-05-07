@@ -26,7 +26,8 @@
     <%= f.text_field :grade %>
 
     <%= f.label :about, 'About the student (required)' %>
-    <%= f.text_area :about, rows: '15' %>
+    <%= f.text_area :about, class: 'tinymce', rows: '15' %>
+	<%= tinymce %>
 
     <h5>You can attach one or more image files to showcase the student's creations and accomplishments:</h5>
 
